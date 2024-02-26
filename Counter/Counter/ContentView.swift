@@ -10,12 +10,15 @@ import SwiftUI
 struct ContentView: View {
     @State private var count: Int = 0
     var body: some View {
+//Text and Stuff
         VStack {
             Text("Click buttons below to change the counter ")
             Text("\(count)")
                 .padding()
         }
+//Buttons and Stuff
             HStack{
+//Increase
             Button(action: {
               count += 1
             }, label:{
@@ -25,7 +28,9 @@ struct ContentView: View {
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
             })
+//Decrease
             Button(action: {
+//Prevent going below 0
                 if count != 0 {
                     count += -1
                 }
