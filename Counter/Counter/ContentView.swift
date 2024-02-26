@@ -7,37 +7,36 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
     @State private var count: Int = 0
     var body: some View {
-//Text and Stuff
+        //Text and showing count
         VStack {
             Text("Click buttons below to change the counter ")
             Text("\(count)")
+            //styling
                 .padding()
         }
-//Buttons and Stuff
-            HStack{
-//Increase
+            //Buttons and Stuff
+        HStack{
+            //Increase button
             Button(action: {
-              count += 1
+                increase()
             }, label:{
+                //Text and styling
                 Text("Increment")
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
             })
-//Decrease
+            //Decrease Button
             Button(action: {
-//Prevent going below 0
-                if count != 0 {
-                    count += -1
-                }
-                else{
-                    return
-                }
+                decrease()
             }, label:{
+                //Text and styling
                 Text("Decrement")
                     .padding()
                     .background(Color.blue)
@@ -47,8 +46,30 @@ struct ContentView: View {
         }
         .padding()
     }
+    //Functions and stuff
+    func increase(){
+        //Increase but doesn't go above 50
+        if (count != 50) {
+            count += 1
+        }
+        else{
+            return
+        }
+    }
+    func decrease(){
+        //Prevent going below 0
+        if count != 0 {
+            count += -1
+        }
+        else{
+            return
+        }
+    }
 }
 
 #Preview {
     ContentView()
 }
+
+
+
