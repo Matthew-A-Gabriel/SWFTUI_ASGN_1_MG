@@ -7,61 +7,82 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View {
+    //Variable
     @State private var count: Int = 0
     var body: some View {
-        //Text and showing count
+        //Vstack
         VStack {
+            //Text explaination
             Text("Click buttons below to change the counter ")
+            //display count
             Text("\(count)")
-            //styling
+            //styling for variable count
                 .padding()
         }
-            //Buttons and Stuff
+        //Hstack
         HStack{
             //Increase button
             Button(action: {
+                // Call increase Function
                 increase()
+                //Label
             }, label:{
-                //Text and styling
+                //Text for button
                 Text("Increment")
+                    //Padding for Button
                     .padding()
+                    //background color for button
                     .background(Color.blue)
+                    //text color for button
                     .foregroundColor(Color.white)
+                    //Corner radius for button
                     .cornerRadius(10)
             })
             //Decrease Button
             Button(action: {
+                //Call decrease function
                 decrease()
+                //label
             }, label:{
-                //Text and styling
+                //Text for Button
                 Text("Decrement")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
-            })
+                //Padding for Button
+                .padding()
+                //background color for button
+                .background(Color.blue)
+                //text color for button
+                .foregroundColor(Color.white)
+                //Corner radius for button
+                .cornerRadius(10)
+        })
         }
         .padding()
     }
     //Functions and stuff
+    //increase function
     func increase(){
-        //Increase but doesn't go above 50
+        //if so that it doesn't go over 50
         if (count != 50) {
+            //add 1 if condition is met
             count += 1
         }
+        //otherwise
         else{
+            //makes it return
             return
         }
     }
+    //decrease function
     func decrease(){
-        //Prevent going below 0
+        //if so that it doesn't go below 0
         if count != 0 {
+            //subtract 1 if condition is met
             count += -1
         }
+        //otherwise
         else{
+            //makes it return
             return
         }
     }
